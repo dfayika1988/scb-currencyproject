@@ -1,4 +1,68 @@
 #include<CommonHeader.h>
+#include<CommonHeader.h>
+
+// std
+#include <string>
+
+// Utility function to remove spaces and tabs from start of string and end of string.. 
+// maybe use string_view?
+std::string trim(std::string str) 
+{ 
+    // early return - no whitespace, we're done
+    if (str.empty())
+        return str;
+    
+    // start from beginning and skip any whitespace
+    // test: "  abc"
+    // str[0] == true
+    // str[1] == true
+    // str[2] == false; b = 2
+    size_t b = 0;
+    while ( std::isspace( str[b] ) )
+        ++b;
+    
+    size_t e = str.length() - 1;
+    while ( e != b && std::isspace( str[e] ) )
+        --e;
+    
+    // trim!
+    return str.substr(b, e - 1 -b);
+}
+
+// Utility function to remove spaces and tabs from start of string and end of string.. 
+string trim_(string &str) { // remove space and tab from string.
+    string res("");
+    if ((str.find(' ') != string::npos) || (str.find('\t') != string::npos)){ // if space or tab found.. 
+        size_t begin, end;
+        if ((begin = str.find_first_not_of(" \t")) != string::npos){ // if string is not empty.. 
+            end = str.find_last_not_of(" \t");
+            if ( end >= begin )
+                res = str.substr(begin, end - begin + 1);
+        }
+    }else{
+        res = str; // No space or tab found.. 
+    }
+    str = res;
+    return res;
+}
+
+//Utility function to check if string contains only digits (0-9).. 
+// is_integer
+// is_all_digits
+// supports 1234, -1234, +1234
+// currently passes with "12-34"
+bool is_integer(const string& str)
+{
+    for ( auto c : str )
+    {
+        if ( !std::isdigit(c) || c != '-' || c != '+' )
+            return false;
+    }
+    
+    return true;
+}
+
+
 
 // Utility function to remove spaces and tabs from start of string and end of string.. 
 string trim (string &str) { // remove space and tab from string.
