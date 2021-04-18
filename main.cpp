@@ -1,14 +1,13 @@
 #include <CommonHeader.h>
 
-// Global variables ... 
+int main(int ){
+	
 string configFile = "./parse.conf";
 string recordFile;
 string currencyFile;
 map<string, float>  currencyMap;
 vector<record>      vecRecord;
 
-
-int main(){
     // Read Config file to set global configuration variables. 
     if (!parseConfig()){
         cerr << "Error parsing Config File " << endl;
