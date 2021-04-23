@@ -10,12 +10,7 @@ namespace QuantLib {
     //! %Currency specification
     class Currency {
       public:
-        //! default constructor
-        /*! Instances built via this constructor have undefined
-            behavior. Such instances can only act as placeholders
-            and must be reassigned to a valid currency before being
-            used.
-        */
+      
         Currency() = default;
         //! \name Inspectors
         //@{
