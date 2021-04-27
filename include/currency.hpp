@@ -1,8 +1,7 @@
-#ifndef quantlib_currency_hpp
-#define quantlib_currency_hpp
 
-#include <ql/math/rounding.hpp>
-#include <ql/errors.hpp>
+
+#include <rounding.hpp>
+#include <errors.hpp>
 #include <iosfwd>
 
 namespace QuantLib {
